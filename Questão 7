@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+struct horario{
+    int horas;
+    int minutos;
+    int segundos;
+}
+
+int transformarHorarioParaSegundos(struct horario h){
+    h.horas*3600 + h.minutos*60 + h.segundos 
+
+}
+
+int main(){
+    
+    struct horario horarios[5];
+
+    for(int i = 0; i < 5; i++){
+        printf("horas: ");
+        scanf("%d", &horarios[i].horas);
+        printf("minutos: ");
+        scanf("%d", &horarios[i].minutos);
+        printf("segundos: ");
+        scanf("%d", &horarios[i].segundos);
+    }
+
+    struct horario maiorHorario = horarios[0];
+
+    for(int i; i < 5; i++){
+       if(horarios[i].horas > maiorHorario.horas){
+          maiorHorario = horario[i];
+       } else if(horarios[i].horas == maiorHorario.horas){  // empate entre horas
+         if(horarios[i].minutos > maioHorario.minutos){
+            maiorHorario = horarios[i];
+         }
+       } 
+    }
+
+    return 0;
+}
