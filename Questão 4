@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <math.h>
+
+struct ponto{
+   int x;
+   int y;
+};
+
+struct retangulo{
+   struct ponto pontoA;
+   struct ponto pontoD;
+};
+
+float calculaDistanciaEntrePontos(struct ponto ponto1, struct ponto ponto2){
+    float distancia = sqrt (pow(r.pontoA.x - r.pontoD.x, 2) +  // sqrt = raiz quadrada / pow é a exponenciação e o 2 é o expoente
+                            pow(r.pontoA.y - r.pontoD.y, 2)); 
+   return distancia; 
+}
+
+float calculaAreadoRetangulo(struct retangulo r){
+   struct ponto pontoB = {r.pontoA.x, r.pontoD.y};
+
+   float altura = calculaDistanciaEntrePontos (r.pontoA, pontoB);
+   float base = calculaDistanciaEntrePontos (pontoB, r.pontoD);
+
+   return base*altura;
+}
+
+float calculaDiagonalDoRetangulo(struct retangulo r){
+   float diagonal = calculaDistanciaEntrePontos(r.pontoA, r.pontoD);
+   return diagonal;
+}
+
+float calculaPerimetrodoRetangulo(struct retangulo r){
+   struct ponto pontoB = {r.pontoA.x, r.pontoD.y};
+
+   float altura = calculaDistanciaEntrePontos (r.pontoA, pontoB);
+   float base = calculaDistanciaEntrePontos (pontoB, r.pontoD);
+
+   return 2*base + 2*altura;
+}
+
+int main(){
+   struct retangulo ret; // ret = nome da variável do tipo retangulo
+
+   printf("Insira o ponto A (canto superior esquerdo) do retangulo:\n");
+   printf("coordana x do ponto A: "); 
+   scanf("%d", &ret.pontoA.x);
+   printf("coordana y do ponto A: "); 
+   scanf("%d", &ret.pontoA.y);
+
+   printf("Insira o ponto D (canto inferior direito) do retangulo:\n");
+   printf("coordana x do ponto D: "); 
+   scanf("%d", &ret.pontoD.x);
+   printf("coordana y do ponto D: "); 
+   scanf("%d", &ret.pontoD.y);
+
+   printf("Comprimento da diagonal do retangulo ret: %f\n", calculaDiagonalDoRetangulo(ret));
+   printf("Comprimento da area do retangulo ret: %f\n", calculaAreadoRetangulo(ret));
+   printf("Comprimento da perimetro do retangulo ret: %f\n", calculaPerimetrodoRetangulo(ret));
+
+    return 0; 
+}
